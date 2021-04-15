@@ -1,0 +1,113 @@
+#:kivy 2.0.0
+
+<GUI>:
+    canvas:
+        Color:
+            rgb: (0.93, 0.93, 0.93)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    
+    ToggleButton:
+        text: 'Degrees'
+        group: 'angle'
+        font_size: 15
+        height: 20
+        center_x: root.width/3 *2
+        center_y: root.height -100
+    
+    
+    ToggleButton:
+        id: angleButton
+        text: 'Radians'
+        state: 'down'
+        group: 'angle'
+        height: 20
+        font_size: 15
+        center_x:root.width/3
+        center_y: root.height -100
+    
+    
+    Label:
+        text:'Adding Vectors'
+        font_size: 30
+        color: 0,0,0,1
+        center_y: root.height -20
+        center_x: root.width / 2
+    
+    TextInput:
+        id: aInput
+        input_filter: 'float'
+        multiline: False
+        center_x: root.width/2
+        center_y: root.height - 150
+        height: 30
+
+    Label: 
+        text:'input Angle'
+        height: 20
+        center_x: root.width /2 
+        center_y: root.height - 120
+        color: 0,0,0,1
+    
+    TextInput:
+        id: mInput
+        input_filter: 'float'
+        multiline: False
+        center_x: root.width/ 2
+        center_y: root.height - 210
+        height: 30
+
+    Label: 
+        text: 'Input Magnitude'
+        height: 20 
+        center_x: root.width / 2
+        center_y: root.height - 180
+        color: 0,0,0,1
+
+    Button: 
+        text:'Clear all'
+        id: clearing
+        height: 20
+        on_press: root.clearAll()
+
+    Button: 
+        text: 'Submit this Vector'
+        id: vect 
+        height:20
+        width: 130
+        center_x: root.width/2
+        center_y: root.height / 6
+        on_press: root.vect()
+    Label:
+        text:''
+        id: listVect
+        center_x:root.width / 2
+        center_y:root.height / 4
+        font_size: 20
+        color: 0,0,0,1
+    Label:
+        text:''
+        id: errors
+        center_x:root.width/2
+        center_y: root.height / 5
+        color: 0,0,0,1
+    Label:
+        text:''
+        id: totalAng
+        center_x:root.width/2
+        center_y: root.height / 7 -20
+        color: 0,0,0,1
+    Label:
+        text:''
+        id: totalMag
+        center_x:root.width/2
+        center_y: root.height / 7
+        color: 0,0,0,1
+    Button: 
+        text: 'Calculate'
+        center_x: root.width / 2
+        center_y: root.height / 9 - 10
+        on_press: root.addingVector()
+        height: 20
